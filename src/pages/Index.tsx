@@ -1,16 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from '@/components/Navbar';
+import HeroSecao from '@/components/HeroSecao';
+import NumerosSecao from '@/components/NumerosSecao';
+import ProblemaSecao from '@/components/ProblemaSecao';
+import SolucaoSecao from '@/components/SolucaoSecao';
+import ParaQuemSecao from '@/components/ParaQuemSecao';
+import ComoFuncionaSecao from '@/components/ComoFuncionaSecao';
+import PrecoSecao from '@/components/PrecoSecao';
+import ProvaSocialSecao from '@/components/ProvaSocialSecao';
+import FaqSecao from '@/components/FaqSecao';
+import CtaFinalSecao from '@/components/CtaFinalSecao';
+import Rodape from '@/components/Rodape';
+import WhatsAppFlutuante from '@/components/WhatsAppFlutuante';
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
-};
-
-const Index = PlaceholderIndex;
+const Index = () => (
+  <>
+    <Navbar />
+    <main>
+      <HeroSecao />
+      <NumerosSecao />
+      <ProblemaSecao />
+      <SolucaoSecao />
+      <ParaQuemSecao />
+      <ComoFuncionaSecao />
+      <PrecoSecao />
+      <ProvaSocialSecao />
+      <FaqSecao />
+      <CtaFinalSecao />
+    </main>
+    <Rodape />
+    <WhatsAppFlutuante />
+  </>
+);
 
 export default Index;
