@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-
-// SUPABASE_URL: inserir aqui
-// SUPABASE_ANON_KEY: inserir aqui
-
-// TODO: Importar createClient do @supabase/supabase-js
-// const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+import { supabase } from '@/lib/supabase';
+import { useNavigate } from 'react-router-dom';
 
 const segmentos = [
   'Advogado(a)',
@@ -19,8 +15,8 @@ const segmentos = [
 const FormularioCaptacao = () => {
   const [form, setForm] = useState({ nome: '', whatsapp: '', segmento: '' });
   const [errors, setErrors] = useState<Record<string, boolean>>({});
-  const [enviado, setEnviado] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const validate = () => {
     const e: Record<string, boolean> = {};
@@ -36,67 +32,72 @@ const FormularioCaptacao = () => {
     if (!validate()) return;
     setLoading(true);
 
-    // TODO: Integrar com Supabase
-    // Capturar UTMs da URL:
-    const params = new URLSearchParams(window.location.search);
-    const utmData = {
-      utm_source: params.get('utm_source') || null,
-      utm_medium: params.get('utm_medium') || null,
-      utm_campaign: params.get('utm_campaign') || null,
-      utm_term: params.get('utm_term') || null,
-      utm_content: params.get('utm_content') || null,
-    };
+    try {
+      // Capturar UTMs da URL
+      const params = new URLSearchParams(window.location.search);
+      const utmData = {
+        utm_source: params.get('utm_source') || null,
+        utm_medium: params.get('utm_medium') || null,
+        utm_campaign: params.get('utm_campaign') || null,
+        utm_term: params.get('utm_term') || null,
+        utm_content: params.get('utm_content') || null,
+      };
 
-    console.log('Lead data:', { ...form, ...utmData });
+      // 1. Buscar ou criar campaign
+      let campaignId: string | null = null;
+      const { data: existingCampaign } = await supabase
+        .from('campaigns')
+        .select('id')
+        .eq('slug', 'pagina-absurda')
+        .single();
 
-    // TODO: Salvar no Supabase:
-    // 1. Buscar ou criar campaign slug = 'pagina-absurda'
-    // 2. Inserir em leads com campaign_id
-    // 3. Registrar lead_events com event_type = 'form_submit'
-    // 4. Capturar UTMs da URL automaticamente
-    //
-    // const { data: campaign } = await supabase
-    //   .from('campaigns')
-    //   .select('id')
-    //   .eq('slug', 'pagina-absurda')
-    //   .single();
-    //
-    // const { data: lead } = await supabase
-    //   .from('leads')
-    //   .insert({
-    //     campaign_id: campaign?.id,
-    //     name: form.nome,
-    //     phone: form.whatsapp,
-    //     status: 'new',
-    //     ...utmData,
-    //   })
-    //   .select('id')
-    //   .single();
-    //
-    // await supabase.from('lead_events').insert({
-    //   lead_id: lead?.id,
-    //   event_type: 'form_submit',
-    //   metadata: { segmento: form.segmento },
-    // });
+      if (existingCampaign) {
+        campaignId = existingCampaign.id;
+      } else {
+        const { data: newCampaign } = await supabase
+          .from('campaigns')
+          .insert({ slug: 'pagina-absurda', name: 'Página Absurda' })
+          .select('id')
+          .single();
+        campaignId = newCampaign?.id || null;
+      }
 
-    await new Promise(r => setTimeout(r, 800));
-    setLoading(false);
-    setEnviado(true);
+      // 2. Inserir lead
+      const { data: lead, error: leadError } = await supabase
+        .from('leads')
+        .insert({
+          campaign_id: campaignId,
+          name: form.nome,
+          phone: form.whatsapp,
+          status: 'new',
+          ...utmData,
+        })
+        .select('id')
+        .single();
+
+      if (leadError) {
+        console.error('Erro ao salvar lead:', leadError);
+        throw leadError;
+      }
+
+      // 3. Registrar evento
+      if (lead?.id) {
+        await supabase.from('lead_events').insert({
+          lead_id: lead.id,
+          event_type: 'form_submit',
+          metadata: { segmento: form.segmento },
+        });
+      }
+
+      navigate('/obrigado');
+    } catch (err) {
+      console.error('Erro no formulário:', err);
+      // Fallback: redireciona mesmo com erro para não travar o usuário
+      navigate('/obrigado');
+    } finally {
+      setLoading(false);
+    }
   };
-
-  if (enviado) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-card border border-primary rounded p-8 text-center"
-      >
-        <p className="text-primary font-display font-bold text-xl">
-          Recebemos! Em breve entraremos em contato 🔥
-        </p>
-      </motion.div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="bg-card border border-border rounded p-6 space-y-4 text-left">
