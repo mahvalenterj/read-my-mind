@@ -72,7 +72,7 @@ const Navbar = () => {
             className="fixed inset-0 z-[60] bg-background flex flex-col"
           >
             <div className="flex items-center justify-between h-16 px-4 border-b border-border">
-              <span className="font-display font-bold text-foreground text-lg">PaginaAbsurda</span>
+              <span className="font-display font-bold text-foreground text-lg">PáginaAbsurda</span>
               <button onClick={() => setMobileOpen(false)}><X size={24} className="text-foreground" /></button>
             </div>
             <div className="flex flex-col gap-6 p-8">
