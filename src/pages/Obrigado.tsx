@@ -17,10 +17,10 @@ const Obrigado = () => (
       className="text-center max-w-lg"
     >
       <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-        Pagamento confirmado! 🔥
+        Contato Enviado com Sucesso! 🔥
       </h1>
       <p className="text-text-secondary text-lg mb-12">
-        Em até 3 dias sua página tá absurda.
+        Em até 2 horas sua página absurda começa a ser criada. Enquanto isso, fique à vontade para acompanhar o processo pelo WhatsApp ou relaxar sabendo que sua página incrível está a caminho! 
       </p>
 
       <div className="space-y-6 text-left mb-12">
