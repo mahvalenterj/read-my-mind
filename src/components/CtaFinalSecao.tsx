@@ -26,9 +26,8 @@ const CtaFinalSecao = () => (
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        {/* MERCADO PAGO: inserir link de pagamento aqui */}
         <a
-          href="#"
+          href="https://mpago.la/1Q7ZzV2"
           className="bg-primary text-primary-foreground font-bold px-8 py-4 rounded text-lg btn-pulse transition-all w-full sm:w-auto"
         >
           Quero minha página agora — R$397
