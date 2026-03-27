@@ -40,7 +40,8 @@ const Navbar = () => {
       >
         <div className="container mx-auto flex items-center justify-between h-16 px-4">
           <a href="#" className="flex items-center gap-2">
-            <span className="bg-primary text-primary-foreground font-display font-bold text-lg px-2 py-0.5 rounded-sm" style={{ clipPath: 'polygon(0 0, 100% 0, 92% 100%, 0% 100%)' }}>PA</span>
+          <span className="bg-primary text-primary-foreground font-heading font-bold text-lg px-2 py-0.5 rounded-sm skew-x-[-6deg] inline-block">PA
+          </span>
             <span className="font-display font-bold text-foreground text-lg hidden sm:block">PaginaAbsurda</span>
           </a>
 
