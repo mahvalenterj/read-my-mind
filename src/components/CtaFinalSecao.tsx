@@ -27,7 +27,7 @@ const CtaFinalSecao = () => (
 
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
-          href="https://mpago.la/1Q7ZzV2"
+          href="https://pay.infinitepay.io/marianna-correa/VC1DLUEtSQ-7aVO8eqenx-397,00"
           className="bg-primary text-primary-foreground font-bold px-8 py-4 rounded text-lg btn-pulse transition-all w-full sm:w-auto"
         >
           Quero minha página agora — R$397
