@@ -23,12 +23,12 @@ const Index = () => (
       <HeroSecao />
       <NumerosSecao />
       <ProblemaSecao />
+      <ProvaSocialSecao />
+      <ExemplosSecao />
       <SolucaoSecao />
       <ParaQuemSecao />
       <ComoFuncionaSecao />
       <PrecoSecao />
-      <ExemplosSecao />
-      <ProvaSocialSecao />
       <FaqSecao />
       <GarantiaSecao />
       <CtaFinalSecao />
