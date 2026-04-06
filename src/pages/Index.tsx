@@ -7,6 +7,7 @@ import SolucaoSecao from '@/components/SolucaoSecao';
 import ParaQuemSecao from '@/components/ParaQuemSecao';
 import ComoFuncionaSecao from '@/components/ComoFuncionaSecao';
 import PrecoSecao from '@/components/PrecoSecao';
+import ExemplosSecao from '@/components/ExemplosSecao';
 import ProvaSocialSecao from '@/components/ProvaSocialSecao';
 import FaqSecao from '@/components/FaqSecao';
 import GarantiaSecao from '@/components/GarantiaSecao';
@@ -26,6 +27,7 @@ const Index = () => (
       <ParaQuemSecao />
       <ComoFuncionaSecao />
       <PrecoSecao />
+      <ExemplosSecao />
       <ProvaSocialSecao />
       <FaqSecao />
       <GarantiaSecao />
