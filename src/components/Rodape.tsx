@@ -15,10 +15,10 @@ const Rodape = () => (
 
       <div className="mt-8 pt-6 border-t border-border text-center">
         <p className="text-muted-foreground text-xs">
-          CNPJ: 35.635.237/0001-75
+          CNPJ: 16.865.237.0001-75 | Rio de janeiro - RJ 
         </p>
         <p className="text-muted-foreground text-xs mt-2 max-w-lg mx-auto">
-          Criação de landing pages profissionais para advogados, imobiliárias, mentores e infoprodutores
+          Desde 2012 criando landing pages profissionais para advogados, imobiliárias, mentores e infoprodutores.
         </p>
       </div>
     </div>
