@@ -6,7 +6,7 @@
 import https from 'https';
 
 const HANDLE = 'marianna-correa'; // Sem o $ do início
-const REDIRECT_URL = 'https://paginaabsurda.top/obrigado';
+const REDIRECT_URL = 'https://www.paginaabsurda.top/obrigado';
 const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbx-aAn6St4pbYYazIsM87Yceec9zlHLGCUPcseGYW4QN3dqyE1e3HTz4vEJlNglZZ1wbA/exec';
 
 // Dados do produto (Landing Page - Alta Conversão)
