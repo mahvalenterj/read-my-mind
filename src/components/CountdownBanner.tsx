@@ -5,7 +5,7 @@ const CountdownBanner = () => {
   const [expired, setExpired] = useState(false);
 
   useEffect(() => {
-    const targetDate = new Date('2026-04-10T23:59:00-03:00'); // Brasília time UTC-3
+    const targetDate = new Date('2026-05-11T23:59:00-03:00'); // Brasília time UTC-3
 
     const updateCountdown = () => {
       const now = new Date();
