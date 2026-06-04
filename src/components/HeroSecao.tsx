@@ -55,10 +55,18 @@ const HeroSecao = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
         >
-          <a href="#cta-final" className="bg-primary text-primary-foreground font-bold px-8 py-4 rounded text-lg btn-pulse transition-all w-full sm:w-auto">
+          <a 
+            href="#cta-final" 
+            onClick={() => window.gtag?.('event', 'click_cta_primary', { location: 'hero_section' })}
+            className="bg-primary text-primary-foreground font-bold px-8 py-4 rounded text-lg btn-pulse transition-all w-full sm:w-auto"
+          >
             Quero minha página absurda
           </a>
-          <a href="#como-funciona" className="border border-foreground text-foreground font-bold px-8 py-4 rounded text-lg hover:bg-foreground/10 transition-all w-full sm:w-auto">
+          <a 
+            href="#como-funciona" 
+            onClick={() => window.gtag?.('event', 'click_how_it_works', { location: 'hero_section' })}
+            className="border border-foreground text-foreground font-bold px-8 py-4 rounded text-lg hover:bg-foreground/10 transition-all w-full sm:w-auto"
+          >
             Ver como funciona
           </a>
         </motion.div>

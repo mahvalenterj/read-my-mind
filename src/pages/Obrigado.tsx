@@ -1,4 +1,5 @@
-import { useEffect } from 'react'; // 1. Precisa importar isso aqui
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const steps = [
@@ -8,21 +9,39 @@ const steps = [
 ];
 
 const Obrigado = () => {
-  // 2. O useEffect tem que ficar aqui dentro!
+  const [searchParams] = useSearchParams();
+
   useEffect(() => {
+    // Recebe parâmetros da URL do Infinity Pay
+    const transactionNsu = searchParams.get('transaction_nsu');
+    const valueParam = searchParams.get('value');
+    const value = valueParam ? parseFloat(valueParam) / 100 : 397.0; // Converte centavos para reais
+
+    // Rastreia no Google Analytics 4
+    if (transactionNsu) {
+      window.gtag?.('event', 'purchase', {
+        transaction_id: transactionNsu,
+        value: value,
+        currency: 'BRL'
+      });
+      console.log("✅ Compra rastreada no Google Analytics:", { transactionNsu, value });
+    }
+
+    // Rastreia no Google Ads (conversão)
     if (window.gtag) {
       window.gtag('event', 'conversion', {
         'send_to': 'AW-18064748530/kBFRCNz_1PycEPLf-KVD',
-        'value': 397.0,
-        'currency': 'BRL'
+        'value': value,
+        'currency': 'BRL',
+        'transaction_id': transactionNsu || undefined
       });
-      console.log("Conversão disparada com sucesso!");
+      console.log("✅ Conversão disparada no Google Ads!");
     } else {
-      console.warn("Gtag não encontrado. Verifique o index.html");
+      console.warn("⚠️ Gtag não encontrado. Verifique o index.html");
     }
-  }, []);
+  }, [searchParams]);
 
-  return ( // 3. Adicionamos o "return" e parênteses para envolver o HTML
+  return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -30,11 +49,19 @@ const Obrigado = () => {
         transition={{ duration: 0.6 }}
         className="text-center max-w-lg"
       >
+        <div className="mb-6 text-6xl">
+          {searchParams.get('transaction_nsu') ? '✅' : '🔥'}
+        </div>
+
         <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-          Contato Enviado com Sucesso! 🔥
+          {searchParams.get('transaction_nsu') ? 'Pagamento Confirmado!' : 'Contato Enviado com Sucesso!'}
         </h1>
+
         <p className="text-text-secondary text-lg mb-12">
-          Em até 2 horas sua página absurda começa a ser criada. Enquanto isso, fique à vontade para acompanhar o processo pelo WhatsApp ou relaxar sabendo que sua página incrível está a caminho! 
+          {searchParams.get('transaction_nsu') 
+            ? 'Sua compra foi confirmada! Em até 2 horas sua página absurda começa a ser criada. Acompanhe pelo WhatsApp!'
+            : 'Em até 2 horas sua página absurda começa a ser criada. Enquanto isso, fique à vontade para acompanhar o processo pelo WhatsApp ou relaxar sabendo que sua página incrível está a caminho!'
+          }
         </p>
 
         <div className="space-y-6 text-left mb-12">

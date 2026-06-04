@@ -30,6 +30,11 @@ const Navbar = () => {
     el?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleCtaClick = () => {
+    window.gtag?.('event', 'click_navbar_cta', { location: 'navbar' });
+    scrollTo('#cta-final');
+  };
+
   return (
     <>
       <motion.nav
@@ -51,7 +56,7 @@ const Navbar = () => {
                 {l.label}
               </button>
             ))}
-            <button onClick={() => scrollTo('#cta-final')} className="bg-primary text-primary-foreground font-bold text-sm px-5 py-2 rounded btn-pulse transition-all">
+            <button onClick={handleCtaClick} className="bg-primary text-primary-foreground font-bold text-sm px-5 py-2 rounded btn-pulse transition-all">
               Quero a minha
             </button>
           </div>
@@ -81,7 +86,7 @@ const Navbar = () => {
                   {l.label}
                 </button>
               ))}
-              <button onClick={() => scrollTo('#cta-final')} className="bg-primary text-primary-foreground font-bold text-lg px-6 py-3 rounded mt-4">
+              <button onClick={handleCtaClick} className="bg-primary text-primary-foreground font-bold text-lg px-6 py-3 rounded mt-4">
                 Quero a minha
               </button>
             </div>
