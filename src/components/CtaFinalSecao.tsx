@@ -15,8 +15,8 @@ const CtaFinalSecao = () => {
       'value': 397,
       'currency': 'BRL'
     });
-    // Abre o link de pagamento
-    window.open('https://pay.infinitepay.io/marianna-correa/VC1DLUEtSQ-7aVO8eqenx-397,00', '_blank');
+    // Abre o novo link de pagamento com PIX e Cartão
+    window.location.href = 'https://checkout.infinitepay.io/marianna-correa?lenc=G0EBYIyUqO34CElmJ9d2tEJ7R6OobUP8TRrayUTVkrlOUaA-PbBAobJqQS0M5Dv6QQ_27WIXfxDslruySnIHWX74Wn0MabhGYyLKXzlhlN1B2kjabifTfqi0PPf8NpkADLGC0AZ7rL2e70iY9rjW38YVgt0eYCBBPdTJ35mJ7GRl6SYw2DRkYfQ3jwaf40cARVloAVxiOYKFQr8LWuxRbcMeyw6n2ygQWBUfRmrPl2OABFYkRMIV6egIahhwTWwZycLBUgkYITHmsJdQu42cxigYDXhySSS2A6WCJRVnWrzuo9pMMGtYFF94FO-OymVKhS7ix-8.v1.8d72a61472c66cd8';
   };
 
   const handleWhatsAppClick = () => {

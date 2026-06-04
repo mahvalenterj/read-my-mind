@@ -60,7 +60,7 @@ const PrecoSecao = () => (
           <p className="text-text-secondary text-sm mt-3 mb-8">pagamento único via PIX ou cartão</p>
           {/* MERCADO PAGO: inserir link de pagamento aqui */}
           <a
-            href="#cta-final"
+            href="https://checkout.infinitepay.io/marianna-correa?lenc=G0EBYIyUqO34CElmJ9d2tEJ7R6OobUP8TRrayUTVkrlOUaA-PbBAobJqQS0M5Dv6QQ_27WIXfxDslruySnIHWX74Wn0MabhGYyLKXzlhlN1B2kjabifTfqi0PPf8NpkADLGC0AZ7rL2e70iY9rjW38YVgt0eYCBBPdTJ35mJ7GRl6SYw2DRkYfQ3jwaf40cARVloAVxiOYKFQr8LWuxRbcMeyw6n2ygQWBUfRmrPl2OABFYkRMIV6egIahhwTWwZycLBUgkYITHmsJdQu42cxigYDXhySSS2A6WCJRVnWrzuo9pMMGtYFF94FO-OymVKhS7ix-8.v1.8d72a61472c66cd8"
             className="block bg-primary text-primary-foreground font-bold text-lg py-4 rounded btn-pulse transition-all"
           >
             Quero a minha agora
