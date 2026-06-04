@@ -10,7 +10,11 @@ const segmentos = [
   'Outro',
 ];
 
-const FormularioCaptacao = () => {
+interface FormularioCaptacaoProps {
+  onSubmit?: () => void;
+}
+
+const FormularioCaptacao = ({ onSubmit }: FormularioCaptacaoProps) => {
   const [form, setForm] = useState({ nome: '', whatsapp: '', segmento: '' });
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(false);
@@ -60,6 +64,9 @@ const FormularioCaptacao = () => {
 
       if (!response.ok) throw new Error('Erro ao enviar');
 
+      // Call callback for tracking
+      onSubmit?.();
+
       // Success feedback
       setSuccess(true);
 
@@ -68,6 +75,7 @@ const FormularioCaptacao = () => {
     } catch (err) {
       console.error('Erro no formulário:', err);
       // Fallback: success state even with error
+      onSubmit?.();
       setSuccess(true);
     } finally {
       setLoading(false);
