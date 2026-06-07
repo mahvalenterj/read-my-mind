@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { trackPurchase } from '@/lib/gtm';
 import { motion } from 'framer-motion';
 
 const steps = [
@@ -17,27 +18,10 @@ const Obrigado = () => {
     const valueParam = searchParams.get('value');
     const value = valueParam ? parseFloat(valueParam) / 100 : 397.0; // Converte centavos para reais
 
-    // Rastreia no Google Analytics 4
+    // Rastreia compra no GTM
     if (transactionNsu) {
-      window.gtag?.('event', 'purchase', {
-        transaction_id: transactionNsu,
-        value: value,
-        currency: 'BRL'
-      });
-      console.log("✅ Compra rastreada no Google Analytics:", { transactionNsu, value });
-    }
-
-    // Rastreia no Google Ads (conversão)
-    if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-18064748530/kBFRCNz_1PycEPLf-KVD',
-        'value': value,
-        'currency': 'BRL',
-        'transaction_id': transactionNsu || undefined
-      });
-      console.log("✅ Conversão disparada no Google Ads!");
-    } else {
-      console.warn("⚠️ Gtag não encontrado. Verifique o index.html");
+      trackPurchase(transactionNsu, value, 'BRL');
+      console.log("✅ Compra rastreada no GTM:", { transactionNsu, value });
     }
   }, [searchParams]);
 

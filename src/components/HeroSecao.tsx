@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { trackEvent } from '@/lib/gtm';
 
 const HeroSecao = () => {
   const fullText = "Sua página na internet\nque traz clientes de verdade.";
@@ -57,14 +58,14 @@ const HeroSecao = () => {
         >
           <a 
             href="https://checkout.infinitepay.io/marianna-correa?lenc=G0EBYIyUqO34CElmJ9d2tEJ7R6OobUP8TRrayUTVkrlOUaA-PbBAobJqQS0M5Dv6QQ_27WIXfxDslruySnIHWX74Wn0MabhGYyLKXzlhlN1B2kjabifTfqi0PPf8NpkADLGC0AZ7rL2e70iY9rjW38YVgt0eYCBBPdTJ35mJ7GRl6SYw2DRkYfQ3jwaf40cARVloAVxiOYKFQr8LWuxRbcMeyw6n2ygQWBUfRmrPl2OABFYkRMIV6egIahhwTWwZycLBUgkYITHmsJdQu42cxigYDXhySSS2A6WCJRVnWrzuo9pMMGtYFF94FO-OymVKhS7ix-8.v1.8d72a61472c66cd8"
-            onClick={() => window.gtag?.('event', 'click_cta_primary', { location: 'hero_section' })}
+            onClick={() => trackEvent('cta_click', { location: 'hero_section', button: 'primary' })}
             className="bg-primary text-primary-foreground font-bold px-8 py-4 rounded text-lg btn-pulse transition-all w-full sm:w-auto"
           >
             Quero minha página absurda
           </a>
           <a 
             href="#como-funciona" 
-            onClick={() => window.gtag?.('event', 'click_how_it_works', { location: 'hero_section' })}
+            onClick={() => trackEvent('section_view', { section: 'como_funciona' })}
             className="border border-foreground text-foreground font-bold px-8 py-4 rounded text-lg hover:bg-foreground/10 transition-all w-full sm:w-auto"
           >
             Ver como funciona

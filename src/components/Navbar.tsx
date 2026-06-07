@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { trackCTAClick } from '@/lib/gtm';
 
 const navLinks = [
   { label: 'Como funciona', href: '#como-funciona' },
@@ -31,7 +32,7 @@ const Navbar = () => {
   };
 
   const handleCtaClick = () => {
-    window.gtag?.('event', 'click_navbar_cta', { location: 'navbar' });
+    trackCTAClick('navbar');
     scrollTo('#cta-final');
   };
 
