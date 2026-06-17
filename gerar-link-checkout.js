@@ -31,7 +31,7 @@ const options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Content-Length': JSON.stringify(payload).length
+    'Content-Length': Buffer.byteLength(payloadString)
   }
 };
 
@@ -57,7 +57,7 @@ const req = https.request(options, (res) => {
       }
       console.log('\n📋 Dados da Requisição:');
       console.log('Order NSU:', payload.order_nsu);
-      console.log('Valor: R$ 49,00');
+      console.log('Valor: R$ 49,90');
       console.log('Redirect URL:', REDIRECT_URL);
       console.log('Webhook URL:', WEBHOOK_URL);
     } catch (err) {
@@ -74,5 +74,5 @@ console.log('📤 Gerando link de checkout...\n');
 console.log('Dados enviados:');
 console.log(JSON.stringify(payload, null, 2));
 
-req.write(JSON.stringify(payload));
+req.write(payloadString);
 req.end();
