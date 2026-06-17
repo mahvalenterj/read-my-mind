@@ -55,7 +55,7 @@ const PrecoSecao = () => (
           viewport={{ once: true }}
           className="bg-card border-2 border-primary rounded p-8 text-center"
         >
-          <p className="text-text-secondary line-through text-xl mb-2">R$49</p>
+          <p className="text-text-secondary line-through text-xl mb-2">R$397</p>
           <p className="text-foreground font-display font-bold text-5xl md:text-6xl">R$49</p>
           <p className="text-text-secondary text-sm mt-3 mb-8">pagamento único via PIX ou cartão</p>
           {/* MERCADO PAGO: inserir link de pagamento aqui */}

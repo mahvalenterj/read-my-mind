@@ -61,7 +61,7 @@ const CtaFinalSecao = () => {
             onClick={handleCompraClick}
             className="bg-primary text-primary-foreground font-bold px-8 py-4 rounded text-lg btn-pulse transition-all w-full sm:w-auto cursor-pointer"
           >
-            Quero minha página agora — R$397
+            Quero minha página agora — R$397 por R$49
           </button>
           <a
             href="https://wa.me/5521965737988?text=Ol%C3%A1!%20Vi%20o%20PaginaAbsurda%20e%20quero%20saber%20mais%20sobre%20minha%20p%C3%A1gina%20%F0%9F%94%A5"
