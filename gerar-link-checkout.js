@@ -18,7 +18,7 @@ const payload = {
   items: [
     {
       quantity: 1,
-      price: 4900, // R$ 49,00 em centavos
+      price: 4990, // R$ 49,00 em centavos
       description: 'Landing Page'
     }
   ]
