@@ -12,7 +12,7 @@ const CtaFinalSecao = () => {
     trackGoogleAdEvent('lead', {
       'event_category': 'engagement',
       'event_label': 'compra_cta_final',
-      'value': 397,
+      'value': 49,
       'currency': 'BRL'
     });
     // Abre o novo link de pagamento com PIX e Cartão
@@ -46,7 +46,7 @@ const CtaFinalSecao = () => {
           viewport={{ once: true }}
           className="text-text-secondary text-lg mb-12"
         >
-          3 dias. R$397. Sem mensalidade.
+          3 dias. De R$397 por R$ 49. Sem mensalidade.
         </motion.p>
 
         <div className="max-w-lg mx-auto mb-12">

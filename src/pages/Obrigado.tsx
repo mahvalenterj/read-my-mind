@@ -16,7 +16,7 @@ const Obrigado = () => {
     // Recebe parâmetros da URL do Infinity Pay
     const transactionNsu = searchParams.get('transaction_nsu');
     const valueParam = searchParams.get('value');
-    const value = valueParam ? parseFloat(valueParam) / 100 : 397.0; // Converte centavos para reais
+    const value = valueParam ? parseFloat(valueParam) / 100 : 49.0; // Converte centavos para reais
 
     // Rastreia compra no GTM
     if (transactionNsu) {

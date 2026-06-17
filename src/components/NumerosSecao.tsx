@@ -5,7 +5,7 @@ const stats = [
   { value: 200, prefix: '+', label: 'páginas entregues' },
   { value: 98, suffix: '%', label: 'de aprovação' },
   { value: 3, label: 'dias de entrega' },
-  { value: 397, prefix: 'R$', label: 'preço único' },
+  { value: 49, prefix: 'R$', label: 'preço único' },
 ];
 
 const Counter = ({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) => {

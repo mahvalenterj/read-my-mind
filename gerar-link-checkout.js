@@ -18,7 +18,7 @@ const payload = {
   items: [
     {
       quantity: 1,
-      price: 39700, // R$ 397,00 em centavos
+      price: 4900, // R$ 49,00 em centavos
       description: 'Landing Page'
     }
   ]
@@ -57,7 +57,7 @@ const req = https.request(options, (res) => {
       }
       console.log('\n📋 Dados da Requisição:');
       console.log('Order NSU:', payload.order_nsu);
-      console.log('Valor: R$ 397,00');
+      console.log('Valor: R$ 49,00');
       console.log('Redirect URL:', REDIRECT_URL);
       console.log('Webhook URL:', WEBHOOK_URL);
     } catch (err) {

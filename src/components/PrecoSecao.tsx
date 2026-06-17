@@ -23,7 +23,7 @@ const PrecoSecao = () => (
         viewport={{ once: true }}
         className="text-3xl md:text-5xl font-display font-bold text-foreground text-center mb-4"
       >
-        Tudo isso por R$397
+        Tudo isso de R$397 por R$ 49
       </motion.h2>
       <motion.p
         initial={{ opacity: 0 }}
@@ -55,8 +55,8 @@ const PrecoSecao = () => (
           viewport={{ once: true }}
           className="bg-card border-2 border-primary rounded p-8 text-center"
         >
-          <p className="text-text-secondary line-through text-xl mb-2">R$497</p>
-          <p className="text-foreground font-display font-bold text-5xl md:text-6xl">R$397</p>
+          <p className="text-text-secondary line-through text-xl mb-2">R$49</p>
+          <p className="text-foreground font-display font-bold text-5xl md:text-6xl">R$49</p>
           <p className="text-text-secondary text-sm mt-3 mb-8">pagamento único via PIX ou cartão</p>
           {/* MERCADO PAGO: inserir link de pagamento aqui */}
           <a
